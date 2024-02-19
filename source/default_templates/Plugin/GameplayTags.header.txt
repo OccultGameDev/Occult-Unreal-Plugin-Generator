@@ -1,0 +1,34 @@
+// {COPYRIGHT_HEADER}
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
+
+#ifndef {PLUGIN_API}_GAMEPLAY_TAGS
+#define {PLUGIN_API}_GAMEPLAY_TAGS = true
+#endif
+
+class UGameplayTagsManager;
+
+///////////////////////////////////////////////////////////////////////////////
+// F{PLUGIN_NAME}GameplayTags
+// All Tags related to this plugin should be created here on an as needed basis.
+///////////////////////////////////////////////////////////////////////////////
+struct {PLUGIN_API} F{PLUGIN_NAME}GameplayTags
+{
+public:
+
+	static const F{PLUGIN_NAME}GameplayTags& Get() { return GameplayTags; }
+	static void InitializeNativeTags();
+
+	// FGameplayTag ExampleTag;
+	
+	static FGameplayTag FindTagByString(FString TagString, bool bMatchPartialString = false);
+
+protected:
+	void AddAllTags(UGameplayTagsManager& Manager);
+	void AddTag(UGameplayTagsManager& Manager, FGameplayTag& OutTag, const ANSICHAR* TagName, const ANSICHAR* TagComment);
+private:
+	static F{PLUGIN_NAME}GameplayTags GameplayTags;
+};

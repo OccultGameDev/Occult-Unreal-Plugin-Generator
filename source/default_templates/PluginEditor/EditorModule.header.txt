@@ -1,0 +1,23 @@
+// {COPYRIGHT_HEADER}
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Modules/ModuleInterface.h"
+#include "Toolkits/IToolkitHost.h"
+#include "Toolkits/AssetEditorToolkit.h"
+#include "Modules/ModuleManager.h"
+
+#define {PLUGIN_API_NAME}_EDITOR_MODULE_NAME "{PLUGIN_NAME}Editor"
+
+//////////////////////////////////////////////////////////////////////////
+class F{PLUGIN_NAME}EditorModule : public IModuleInterface
+{
+public:
+	/** IModuleInterface implementation */
+	virtual void StartupModule() override;
+	virtual void ShutdownModule() override;
+
+	void RegisterSettings();
+	void UnregisterSettings();
+};

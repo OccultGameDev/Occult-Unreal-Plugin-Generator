@@ -1,0 +1,6 @@
+{
+	"Name":"LogChannels",
+	"BuildTemplateFile":"",
+	"HeaderTemplateFile":"LogChannels.header.txt",
+	"SourceTemplateFile":"LogChannels.source.txt"
+}

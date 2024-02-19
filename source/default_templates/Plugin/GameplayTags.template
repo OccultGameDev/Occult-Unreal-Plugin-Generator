@@ -1,0 +1,6 @@
+{
+	"Name":"GameplayTags",
+	"BuildTemplateFile":"",
+	"HeaderTemplateFile":"GameplayTags.header.txt",
+	"SourceTemplateFile":"GameplayTags.source.txt"
+}

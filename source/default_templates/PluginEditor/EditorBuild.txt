@@ -1,0 +1,56 @@
+// {COPYRIGHT_HEADER}
+
+using UnrealBuildTool;
+
+////////////////////////////////////////////////////////////////////////////
+public class {PLUGIN_NAME}EditorModule : ModuleRules
+{
+	public {PLUGIN_NAME}EditorModule(ReadOnlyTargetRules Target) : base(Target)
+	{
+		PrivateDependencyModuleNames.AddRange(
+			new string[] {
+				"ApplicationCore",
+				"ContentBrowser",
+				"Core",
+				"CoreUObject",
+				"EditorStyle",
+				"EditorWidgets",
+				"Engine",
+				"GameplayTags",
+				"InputCore",
+				"IntroTutorials",
+				"KismetWidgets",
+				"Kismet",  // for FWorkflowCentricApplication
+				"MeshPaint",
+				"NavigationSystem",
+				"Paper2D",
+				"PhysicsCore",
+				"Projects",
+				"PropertyEditor",
+				"{PLUGIN_NAME}",
+				"RenderCore",
+				"Slate",
+				"SlateCore",
+				"ToolMenus",
+				"UnrealEd", // for FAssetEditorManager
+				"WorkspaceMenuStructure",
+            });
+
+		PublicDependencyModuleNames.AddRange(
+			new string[] {
+				"Json",
+			});
+
+		PrivateIncludePathModuleNames.AddRange(
+			new string[] {
+				"AssetTools",
+				"Settings",
+				"LevelEditor"
+			});
+
+		DynamicallyLoadedModuleNames.AddRange(
+			new string[] {
+			});
+
+	}
+}

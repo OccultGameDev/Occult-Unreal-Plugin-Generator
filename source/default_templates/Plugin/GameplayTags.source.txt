@@ -1,0 +1,55 @@
+// {COPYRIGHT_HEADER}
+
+#include "{PLUGIN_NAME}GameplayTags.h"
+#include "GameplayTagsManager.h"
+#include "Engine/EngineTypes.h"
+
+F{PLUGIN_NAME}GameplayTags F{PLUGIN_NAME}GameplayTags::GameplayTags;
+
+///////////////////////////////////////////////////////////////////////////////
+void F{PLUGIN_NAME}GameplayTags::AddTag(UGameplayTagsManager& Manager, FGameplayTag& OutTag, const ANSICHAR* TagName, const ANSICHAR* TagComment)
+{
+	OutTag = Manager.AddNativeGameplayTag(FName(TagName), FString(TEXT("(Native) ")) + FString(TagComment));
+}
+
+///////////////////////////////////////////////////////////////////////////////
+FGameplayTag F{PLUGIN_NAME}GameplayTags::FindTagByString(FString TagString, bool bMatchPartialString)
+{
+	const UGameplayTagsManager& Manager = UGameplayTagsManager::Get();
+	FGameplayTag Tag = Manager.RequestGameplayTag(FName(*TagString), false);
+
+	if (!Tag.IsValid() && bMatchPartialString)
+	{
+		FGameplayTagContainer AllTags;
+		Manager.RequestAllGameplayTags(AllTags, true);
+
+		for (const FGameplayTag TestTag : AllTags)
+		{
+			if (TestTag.ToString().Contains(TagString))
+			{
+				UE_LOG({LOG_CHANNEL}, Display, TEXT("Could not find exact match for tag [%s] but found partial match on tag [%s]."), *TagString, *TestTag.ToString());
+				Tag = TestTag;
+				break;
+			}
+		}
+	}
+
+	return Tag;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void F{PLUGIN_NAME}GameplayTags::InitializeNativeTags()
+{
+	UGameplayTagsManager& Manager = UGameplayTagsManager::Get();
+
+	GameplayTags.AddAllTags(Manager);
+
+	// Notify manager that we are done adding native tags.
+	Manager.DoneAddingNativeTags();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void F{PLUGIN_NAME}GameplayTags::AddAllTags(UGameplayTagsManager& Manager)
+{
+	// AddTag(Manager, ExampleTag, "ExampleTag", "ExampleTag Description.");
+}

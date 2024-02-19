@@ -1,0 +1,42 @@
+// {COPYRIGHT_HEADER}
+
+#include "{PLUGIN_NAME}EditorModule.h"
+
+// Settings
+#include "ISettingsModule.h"
+#include "ISettingsSection.h"
+#include "ISettingsContainer.h"
+#include <ISettingsCategory.h>
+#include "IAssetTools.h"
+#include "AssetToolsModule.h"
+
+#define LOCTEXT_NAMESPACE "F{PLUGIN_NAME}EditorModule"
+
+//////////////////////////////////////////////////////////////////////////
+void F{PLUGIN_NAME}EditorModule::StartupModule() 
+{
+	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
+}
+
+//////////////////////////////////////////////////////////////////////////
+void F{PLUGIN_NAME}EditorModule::ShutdownModule()  
+{
+	// This function may be called during shutdown to clean up your module.  For modules that support dynamic reloading,
+	// we call this function before unloading the module.
+}
+
+//////////////////////////////////////////////////////////////////////////
+void F{PLUGIN_NAME}EditorModule::RegisterSettings() 
+{
+	
+}
+
+//////////////////////////////////////////////////////////////////////////
+void F{PLUGIN_NAME}EditorModule::UnregisterSettings() 
+{
+
+}
+
+#undef LOCTEXT_NAMESPACE
+	
+IMPLEMENT_MODULE(F{PLUGIN_NAME}EditorModule, {PLUGIN_NAME}Editor)

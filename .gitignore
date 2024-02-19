@@ -1,0 +1,4 @@
+source/obj/
+source/.vs/
+source/bin/
+*.csproj.user

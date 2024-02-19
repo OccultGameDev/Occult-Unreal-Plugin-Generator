@@ -1,0 +1,58 @@
+// {COPYRIGHT_HEADER}
+
+#include "{PLUGIN_NAME}DeveloperSettings.h"
+
+// This improves compile times because less header parsing is required.
+#include UE_INLINE_GENERATED_CPP_BY_NAME({PLUGIN_NAME}DeveloperSettings)
+
+///////////////////////////////////////////////////////////////////////////////
+U{PLUGIN_NAME}DeveloperSettings::U{PLUGIN_NAME}DeveloperSettings(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
+{
+	// Intentionally Left Blank
+}
+
+///////////////////////////////////////////////////////////////////////////////
+FName U{PLUGIN_NAME}DeveloperSettings::GetCategoryName() const 
+{
+	return FName(TEXT("Plugins"));
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// static 
+U{PLUGIN_NAME}DeveloperSettings* U{PLUGIN_NAME}DeveloperSettings::Get{PLUGIN_NAME}Settings()
+{
+	return U{PLUGIN_NAME}DeveloperSettings::StaticClass()->GetDefaultObject<U{PLUGIN_NAME}DeveloperSettings>();
+}
+
+#if WITH_EDITOR
+///////////////////////////////////////////////////////////////////////////////
+void U{PLUGIN_NAME}DeveloperSettings::ApplySettingsInEditor()
+{
+	if (GIsEditor && (GEngine != nullptr))
+	{
+		// Apply any changes that need to be made here, assuming an essential value changed and needs to have
+		// an immediate impact.
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void U{PLUGIN_NAME}DeveloperSettings::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) 
+{
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+	ApplySettingsInEditor();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void U{PLUGIN_NAME}DeveloperSettings::PostReloadConfig(FProperty* PropertyThatWasLoaded) 
+{
+	Super::PostReloadConfig(PropertyThatWasLoaded);
+	ApplySettingsInEditor();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void U{PLUGIN_NAME}DeveloperSettings::PostInitProperties() 
+{
+	Super::PostInitProperties();
+	ApplySettingsInEditor();
+}
+#endif // WITH_EDITOR

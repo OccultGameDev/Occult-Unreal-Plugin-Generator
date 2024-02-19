@@ -1,0 +1,6 @@
+{
+	"Name":"DeveloperSettings",
+	"BuildTemplateFile":"",
+	"HeaderTemplateFile":"DeveloperSettings.header.txt",
+	"SourceTemplateFile":"DeveloperSettings.source.txt"
+}

@@ -1,0 +1,38 @@
+// {COPYRIGHT_HEADER}
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Engine/DeveloperSettingsBackedByCVars.h"
+#include "{PLUGIN_NAME}DeveloperSettings.generated.h"
+
+///////////////////////////////////////////////////////////////////////////////
+UCLASS(config = {PLUGIN_NAME}Settings, defaultconfig, meta = (DisplayName = "{PLUGIN_NAME} Settings"))
+class U{PLUGIN_NAME}DeveloperSettings : public UDeveloperSettings
+{
+	GENERATED_BODY()
+
+public:
+	U{PLUGIN_NAME}DeveloperSettings(const FObjectInitializer& ObjectInitializer);
+
+	//UPROPERTY(EditAnywhere, Config, NoClear, BlueprintReadOnly, Category = "{PLUGIN_NAME}DeveloperSettings")
+	//	FText ExampleDeveloperSettingText;
+
+	//~UDeveloperSettings interface
+	virtual FName GetCategoryName() const override;
+	//~End of UDeveloperSettings interface
+
+	UFUNCTION(BlueprintCallable, Category = "{PLUGIN_NAME}DeveloperSettings")
+	static U{PLUGIN_NAME}DeveloperSettings* Get{PLUGIN_NAME}Settings();
+
+#if WITH_EDITOR
+private:
+	void ApplySettingsInEditor();
+public:
+	//~UObject interface
+	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+	virtual void PostReloadConfig(FProperty* PropertyThatWasLoaded) override;
+	virtual void PostInitProperties() override;
+	//~End of UObject interface
+#endif // WITH_EDITOR
+};

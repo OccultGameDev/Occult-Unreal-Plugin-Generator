@@ -1,0 +1,121 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PublishSingleFile>true</PublishSingleFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="default_templates\Build.template" />
+    <None Remove="default_templates\Build.txt" />
+    <None Remove="default_templates\DeveloperSettings.header.txt" />
+    <None Remove="default_templates\DeveloperSettings.source.txt" />
+    <None Remove="default_templates\DeveloperSettings.template" />
+    <None Remove="default_templates\GameplayTags.header.txt" />
+    <None Remove="default_templates\GameplayTags.source.txt" />
+    <None Remove="default_templates\GameplayTags.template" />
+    <None Remove="default_templates\LogChannels.header.txt" />
+    <None Remove="default_templates\LogChannels.source.txt" />
+    <None Remove="default_templates\LogChannels.template" />
+    <None Remove="default_templates\Module.header.txt" />
+    <None Remove="default_templates\Module.source.txt" />
+    <None Remove="default_templates\Module.template" />
+    <None Remove="default_templates\Plugin.module" />
+    <None Remove="default_templates\PluginEditor.module" />
+    <None Remove="default_templates\PluginEditor\EditorBuild.template" />
+    <None Remove="default_templates\PluginEditor\EditorBuild.txt" />
+    <None Remove="default_templates\PluginEditor\EditorModule.header.txt" />
+    <None Remove="default_templates\PluginEditor\EditorModule.source.txt" />
+    <None Remove="default_templates\PluginEditor\EditorModule.template" />
+    <None Remove="default_templates\Plugin\Build.template" />
+    <None Remove="default_templates\Plugin\Build.txt" />
+    <None Remove="default_templates\Plugin\DeveloperSettings.header.txt" />
+    <None Remove="default_templates\Plugin\DeveloperSettings.source.txt" />
+    <None Remove="default_templates\Plugin\DeveloperSettings.template" />
+    <None Remove="default_templates\Plugin\GameplayTags.header.txt" />
+    <None Remove="default_templates\Plugin\GameplayTags.source.txt" />
+    <None Remove="default_templates\Plugin\GameplayTags.template" />
+    <None Remove="default_templates\Plugin\LogChannels.header.txt" />
+    <None Remove="default_templates\Plugin\LogChannels.source.txt" />
+    <None Remove="default_templates\Plugin\LogChannels.template" />
+    <None Remove="default_templates\Plugin\Module.header.txt" />
+    <None Remove="default_templates\Plugin\Module.source.txt" />
+    <None Remove="default_templates\Plugin\Module.template" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="default_templates\Plugin.module">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\PluginEditor.module">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\PluginEditor\EditorBuild.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\PluginEditor\EditorBuild.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\PluginEditor\EditorModule.header.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\PluginEditor\EditorModule.source.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\PluginEditor\EditorModule.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\Build.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\Build.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\DeveloperSettings.header.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\DeveloperSettings.source.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\DeveloperSettings.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\GameplayTags.header.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\GameplayTags.source.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\GameplayTags.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\LogChannels.header.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\LogChannels.source.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\LogChannels.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\Module.header.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\Module.source.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_templates\Plugin\Module.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+  </ItemGroup>
+
+</Project>

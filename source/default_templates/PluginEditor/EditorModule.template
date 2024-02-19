@@ -1,0 +1,6 @@
+{
+	"Name":"",
+	"BuildTemplateFile":"",
+	"HeaderTemplateFile":"EditorModule.header.txt",
+	"SourceTemplateFile":"EditorModule.source.txt"
+}
