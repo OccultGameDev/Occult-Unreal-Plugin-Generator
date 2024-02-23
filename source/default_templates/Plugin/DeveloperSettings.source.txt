@@ -1,38 +1,58 @@
 // {COPYRIGHT_HEADER}
 
-#pragma once
+#include "{PLUGIN_NAME}DeveloperSettings.h"
 
-#include "CoreMinimal.h"
-#include "Engine/DeveloperSettingsBackedByCVars.h"
-#include "{PLUGIN_NAME}DeveloperSettings.generated.h"
+// This improves compile times because less header parsing is required.
+#include UE_INLINE_GENERATED_CPP_BY_NAME({PLUGIN_NAME}DeveloperSettings)
 
 ///////////////////////////////////////////////////////////////////////////////
-UCLASS(config = {PLUGIN_NAME}Settings, defaultconfig, meta = (DisplayName = "{PLUGIN_NAME} Settings"))
-class U{PLUGIN_NAME}DeveloperSettings : public UDeveloperSettings
+U{PLUGIN_NAME}DeveloperSettings::U{PLUGIN_NAME}DeveloperSettings(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-	GENERATED_BODY()
+	// Intentionally Left Blank
+}
 
-public:
-	U{PLUGIN_NAME}DeveloperSettings(const FObjectInitializer& ObjectInitializer);
+///////////////////////////////////////////////////////////////////////////////
+FName U{PLUGIN_NAME}DeveloperSettings::GetCategoryName() const 
+{
+	return FName(TEXT("Plugins"));
+}
 
-	//UPROPERTY(EditAnywhere, Config, NoClear, BlueprintReadOnly, Category = "{PLUGIN_NAME}DeveloperSettings")
-	//	FText ExampleDeveloperSettingText;
-
-	//~UDeveloperSettings interface
-	virtual FName GetCategoryName() const override;
-	//~End of UDeveloperSettings interface
-
-	UFUNCTION(BlueprintCallable, Category = "{PLUGIN_NAME}DeveloperSettings")
-	static U{PLUGIN_NAME}DeveloperSettings* Get{PLUGIN_NAME}Settings();
+///////////////////////////////////////////////////////////////////////////////
+// static 
+U{PLUGIN_NAME}DeveloperSettings* U{PLUGIN_NAME}DeveloperSettings::Get{PLUGIN_NAME}Settings()
+{
+	return U{PLUGIN_NAME}DeveloperSettings::StaticClass()->GetDefaultObject<U{PLUGIN_NAME}DeveloperSettings>();
+}
 
 #if WITH_EDITOR
-private:
-	void ApplySettingsInEditor();
-public:
-	//~UObject interface
-	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
-	virtual void PostReloadConfig(FProperty* PropertyThatWasLoaded) override;
-	virtual void PostInitProperties() override;
-	//~End of UObject interface
+///////////////////////////////////////////////////////////////////////////////
+void U{PLUGIN_NAME}DeveloperSettings::ApplySettingsInEditor()
+{
+	if (GIsEditor && (GEngine != nullptr))
+	{
+		// Apply any changes that need to be made here, assuming an essential value changed and needs to have
+		// an immediate impact.
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void U{PLUGIN_NAME}DeveloperSettings::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) 
+{
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+	ApplySettingsInEditor();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void U{PLUGIN_NAME}DeveloperSettings::PostReloadConfig(FProperty* PropertyThatWasLoaded) 
+{
+	Super::PostReloadConfig(PropertyThatWasLoaded);
+	ApplySettingsInEditor();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void U{PLUGIN_NAME}DeveloperSettings::PostInitProperties() 
+{
+	Super::PostInitProperties();
+	ApplySettingsInEditor();
+}
 #endif // WITH_EDITOR
-};
