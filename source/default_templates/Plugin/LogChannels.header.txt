@@ -5,4 +5,4 @@
 #include "CoreMinimal.h"
 #include "Logging/LogMacros.h"
 
-{PLUGIN_API} DECLARE_LOG_CATEGORY_EXTERN({LOG_CHANNEL_DEFINE}, All);
+{PLUGIN_API} DECLARE_LOG_CATEGORY_EXTERN({LOG_CHANNEL_DEFINE}, Log, All);
